@@ -1,29 +1,28 @@
 local WindUI = loadstring(game:HttpGet("https://github.com/Footagesus/WindUI/releases/latest/download/main.lua"))()
 
--- ตั้งค่าธีมก่อนสร้าง Window
 WindUI:AddTheme({
-    Name = "ModernPurple",
-    Accent = Color3.fromHex("#BF40FF"),
-    Background = Color3.fromHex("#2A1035"),
-    BackgroundTransparency = 0.1,
-    Outline = Color3.fromHex("#BF40FF"),
+    Name = "DarkRubyClean",
+    Accent = Color3.fromHex("#FF0000"),
+    Background = Color3.fromHex("#0F0F0F"),
+    BackgroundTransparency = 0,
+    Outline = Color3.fromHex("#1A1A1A"),
     Text = Color3.fromHex("#FFFFFF"),
-    Placeholder = Color3.fromHex("#E0AAFF"),
-    Button = Color3.fromHex("#BF40FF"),
+    Placeholder = Color3.fromHex("#888888"),
+    Button = Color3.fromHex("#1A1A1A"),
     Icon = Color3.fromHex("#FFFFFF"),
-    Hover = Color3.fromHex("#E0AAFF"),
-    WindowBackground = Color3.fromHex("#2A1035"),
-    WindowShadow = Color3.fromHex("#BF40FF"),
-    TabBackground = Color3.fromHex("#BF40FF"),
+    Hover = Color3.fromHex("#2A2A2A"),
+    WindowBackground = Color3.fromHex("#0F0F0F"),
+    WindowShadow = Color3.fromHex("#FF0000"),
+    TabBackground = Color3.fromHex("#1A1A1A"),
     TabTitle = Color3.fromHex("#FFFFFF"),
     TabIcon = Color3.fromHex("#FFFFFF"),
-    ElementBackground = Color3.fromHex("#502070"),
+    ElementBackground = Color3.fromHex("#151515"),
     ElementTitle = Color3.fromHex("#FFFFFF"),
-    ElementDesc = Color3.fromHex("#E0AAFF"),
+    ElementDesc = Color3.fromHex("#AAAAAA"),
     ElementIcon = Color3.fromHex("#FFFFFF"),
-    Slider = Color3.fromHex("#BF40FF"),
+    Slider = Color3.fromHex("#FF0000"),
     SliderThumb = Color3.fromHex("#FFFFFF"),
-    Toggle = Color3.fromHex("#BF40FF"),
+    Toggle = Color3.fromHex("#FF0000"),
     ToggleBar = Color3.fromHex("#FFFFFF")
 })
 
@@ -34,8 +33,14 @@ local Window = WindUI:CreateWindow({
     Folder = "Pun",
     Size = UDim2.fromOffset(580, 460),
     Transparent = true,
-    Theme = "ModernPurple",
+    Theme = "DarkRubyClean",
     HideSearchBar = true,
+    KeySystem = { 
+        Key = { "pun-1029384756-102030405060708090-123-456-789-24680-13579-key" },
+        Note = "ใส่คีย์เพื่อเข้าใช้งาน Pun Hub",
+        URL = "https://unlock-you-get.base44.app/UnlockView?id=69db497c56241db38408d368",
+        SaveKey = true,
+    },
 })
 
 Window:EditOpenButton({
@@ -47,14 +52,12 @@ Window:EditOpenButton({
 
 local ScriptSection = Window:Section({ Title = "Script", Icon = "folder", Opened = true })
 
--- Tab: Somtank
 local SomtankTab = ScriptSection:Tab({ Title = "Somtank", Icon = "mouse-pointer-click" })
 SomtankTab:Button({ Title = "99 nights in the fores", Callback = function() loadstring(game:HttpGet("https://api.luarmor.net/files/v4/loaders/61d67426af8207b22bde1afb308d9ff4.lua"))() end })
 SomtankTab:Button({ Title = "Murder Mystery 2", Callback = function() loadstring(game:HttpGet("https://api.luarmor.net/files/v4/loaders/36aa7a52f557fa2d7e5dbedae04d267b.lua"))() end })
 SomtankTab:Button({ Title = "Death Rail", Callback = function() loadstring(game:HttpGet("https://api.luarmor.net/files/v4/loaders/5132beca3ac02bb7f0536fa934905520.lua"))() end })
 SomtankTab:Button({ Title = "Escape Tsunami for Brainrot", Callback = function() loadstring(game:HttpGet('https://raw.githubusercontent.com/HJSIWN/BoaYoga/refs/heads/main/Escape_Tsunami_For_Barinrot.lua'))() end })
 
--- Tab: Im Patrick
 local PatrickTab = ScriptSection:Tab({ Title = "Im Patrick", Icon = "user" })
 PatrickTab:Button({ Title = "Fe Mini Car (R15)", Callback = function() loadstring(game:HttpGet("https://pastefy.app/UqDEIOpO/raw"))() end })
 PatrickTab:Button({ Title = "Fe Control NPC Remake", Callback = function() loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Fe-Control-NPC-Remake-54425"))() end })
@@ -63,7 +66,6 @@ PatrickTab:Button({ Title = "PShade Ultimate", Callback = function() loadstring(
 PatrickTab:Button({ Title = "Rochips Panel", Callback = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/randomstring0/load/refs/heads/main/rcloader"))() end })
 PatrickTab:Button({ Title = "Rochips Universal", Callback = function() loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-rochips-universal-18294"))() end })
 
--- Tab: MastersMZ
 local MastersMZTab = ScriptSection:Tab({ Title = "MastersMZ", Icon = "star" })
 MastersMZTab:Button({ Title = "Altair V2 Script Hub", Callback = function() loadstring(game:HttpGet("https://pastefy.app/hiwjpLFi/raw"))() end })
 MastersMZTab:Button({ Title = "Echolite Hub", Callback = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/YepimSirPwnsAlot/dfdsfsfewfe/refs/heads/main/xcscdscsdcs"))() end })
@@ -74,7 +76,13 @@ MastersMZTab:Button({ Title = "Rob Visual Script Hub", Callback = function() loa
 MastersMZTab:Button({ Title = "FE Trolling GUI", Callback = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/yofriendfromschool1/Sky-Hub/main/FE%20Trolling%20GUI.luau"))() end })
 MastersMZTab:Button({ Title = "FE Sandevistan V6", Callback = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/mahowaga51-cmd/FE-Scripts/refs/heads/main/FE%20Sandevistan%20V6"))() end })
 
--- Tab: Player Control
+-- ย้าย Code Tab มาอยู่หลัง Script Section
+local CodeTab = Window:Tab({ Title = "discord", Icon = "code" })
+CodeTab:Code({
+    Title = "discord",
+    Code = [[punpunok.]]
+})
+
 local MiscTab = Window:Tab({ Title = "Player Control", Icon = "settings" })
 local player = game.Players.LocalPlayer
 
@@ -105,4 +113,4 @@ MiscTab:Button({
     end
 })
 
-WindUI:Notify({ Title = "Hub", Content = "โหลดสำเร็จแล้ว!" })
+WindUI:Notify({ Title = "Hub", Content = "จัดลำดับแท็บใหม่เรียบร้อย" })
