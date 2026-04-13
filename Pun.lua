@@ -36,14 +36,6 @@ local Window = WindUI:CreateWindow({
     Transparent = true,
     Theme = "ModernPurple",
     HideSearchBar = true,
-    
-    -- ใช้ Key System ในตัวของ WindUI ตามที่ปันต้องการ
-    KeySystem = { 
-        Key = { "pun-1029384756-102030405060708090-123-456-789-24680-13579-key" },
-        Note = "ใส่คีย์เพื่อเข้าใช้งาน Pun Hub",
-        URL = "https://unlock-you-get.base44.app/UnlockView?id=69db497c56241db38408d368",
-        SaveKey = true, -- บันทึกคีย์ให้อัตโนมัติ รอบหน้าไม่ต้องใส่ซ้ำ
-    },
 })
 
 Window:EditOpenButton({
