@@ -83,6 +83,31 @@ CodeTab:Code({
     Code = [[punpunok.]]
 })
 
+CodeTab:Code({
+    Title = "tiktok",
+    Code = [[punpun102030405060708090]]
+})
+
+CodeTab:Code({
+    Title = "main website",
+    Code = [[https://sites.google.com/view/pun-pun-script]]
+})
+
+CodeTab:Code({
+    Title = "key website",
+    Code = [[https://unlock-you-get.base44.app]]
+})
+
+CodeTab:Code({
+    Title = "script website",
+    Code = [[https://ropun-script-hub.base44.app]]
+})
+
+CodeTab:Code({
+    Title = "load website",
+    Code = [[https://scriptload4-gpyduneo.manus.space]]
+})
+
 local MiscTab = Window:Tab({ Title = "Player Control", Icon = "settings" })
 local player = game.Players.LocalPlayer
 
