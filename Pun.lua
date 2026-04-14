@@ -77,7 +77,7 @@ MastersMZTab:Button({ Title = "FE Trolling GUI", Callback = function() loadstrin
 MastersMZTab:Button({ Title = "FE Sandevistan V6", Callback = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/mahowaga51-cmd/FE-Scripts/refs/heads/main/FE%20Sandevistan%20V6"))() end })
 
 -- ย้าย Code Tab มาอยู่หลัง Script Section
-local CodeTab = Window:Tab({ Title = "discord", Icon = "code" })
+local CodeTab = Window:Tab({ Title = "component", Icon = "code" })
 CodeTab:Code({
     Title = "discord",
     Code = [[punpunok.]]
@@ -132,7 +132,7 @@ MiscTab:Slider({
 })
 
 MiscTab:Button({
-    Title = "🕊️ Fly",
+    Title = "Fly",
     Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/FlyGuiV3.txt"))()
     end
