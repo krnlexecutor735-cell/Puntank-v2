@@ -1,7 +1,7 @@
 local WindUI = loadstring(game:HttpGet("https://github.com/Footagesus/WindUI/releases/latest/download/main.lua"))()
 
 WindUI:AddTheme({
-    Name = "DarkRubyClean",
+    Name = "Dark",
     Accent = Color3.fromHex("#000000"),
     Background = Color3.fromHex("#000000"),
     BackgroundTransparency = 0,
@@ -12,7 +12,7 @@ WindUI:AddTheme({
     Icon = Color3.fromHex("#FFFFFF"),
     Hover = Color3.fromHex("#000000"),
     WindowBackground = Color3.fromHex("#000000"),
-    WindowShadow = Color3.fromHex("#FF0000"),
+    WindowShadow = Color3.fromHex("#FFFFFF"),
     TabBackground = Color3.fromHex("#000000"),
     TabTitle = Color3.fromHex("#FFFFFF"),
     TabIcon = Color3.fromHex("#FFFFFF"),
@@ -33,7 +33,7 @@ local Window = WindUI:CreateWindow({
     Folder = "Pun",
     Size = UDim2.fromOffset(580, 460),
     Transparent = true,
-    Theme = "DarkRubyClean",
+    Theme = "Dark",
     HideSearchBar = true,
     KeySystem = { 
         Key = { "pun-1029384756-102030405060708090-123-456-789-24680-13579-key" },
