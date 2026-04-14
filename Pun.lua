@@ -2,28 +2,28 @@ local WindUI = loadstring(game:HttpGet("https://github.com/Footagesus/WindUI/rel
 
 WindUI:AddTheme({
     Name = "DarkRubyClean",
-    Accent = Color3.fromHex("#FF0000"),
-    Background = Color3.fromHex("#0F0F0F"),
+    Accent = Color3.fromHex("#000000"),
+    Background = Color3.fromHex("#000000"),
     BackgroundTransparency = 0,
-    Outline = Color3.fromHex("#1A1A1A"),
+    Outline = Color3.fromHex("#000000"),
     Text = Color3.fromHex("#FFFFFF"),
-    Placeholder = Color3.fromHex("#888888"),
-    Button = Color3.fromHex("#1A1A1A"),
+    Placeholder = Color3.fromHex("#000000"),
+    Button = Color3.fromHex("#000000"),
     Icon = Color3.fromHex("#FFFFFF"),
-    Hover = Color3.fromHex("#2A2A2A"),
-    WindowBackground = Color3.fromHex("#0F0F0F"),
+    Hover = Color3.fromHex("#000000"),
+    WindowBackground = Color3.fromHex("#000000"),
     WindowShadow = Color3.fromHex("#FF0000"),
-    TabBackground = Color3.fromHex("#1A1A1A"),
+    TabBackground = Color3.fromHex("#000000"),
     TabTitle = Color3.fromHex("#FFFFFF"),
     TabIcon = Color3.fromHex("#FFFFFF"),
-    ElementBackground = Color3.fromHex("#151515"),
+    ElementBackground = Color3.fromHex("#000000"),
     ElementTitle = Color3.fromHex("#FFFFFF"),
-    ElementDesc = Color3.fromHex("#AAAAAA"),
+    ElementDesc = Color3.fromHex("#000000"),
     ElementIcon = Color3.fromHex("#FFFFFF"),
-    Slider = Color3.fromHex("#FF0000"),
+    Slider = Color3.fromHex("#000000"),
     SliderThumb = Color3.fromHex("#FFFFFF"),
-    Toggle = Color3.fromHex("#FF0000"),
-    ToggleBar = Color3.fromHex("#FFFFFF")
+    Toggle = Color3.fromHex("#000000"),
+    ToggleBar = Color3.fromHex("#000000")
 })
 
 local Window = WindUI:CreateWindow({
