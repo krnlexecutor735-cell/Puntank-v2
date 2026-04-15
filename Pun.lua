@@ -2,28 +2,28 @@ local WindUI = loadstring(game:HttpGet("https://github.com/Footagesus/WindUI/rel
 
 WindUI:AddTheme({
     Name = "Dark",
-    Accent = Color3.fromHex("#000000"),
+    Accent = Color3.fromHex("#30ff6a"),
     Background = Color3.fromHex("#000000"),
     BackgroundTransparency = 0,
-    Outline = Color3.fromHex("#000000"),
+    Outline = Color3.fromHex("#1A1A1A"),
     Text = Color3.fromHex("#FFFFFF"),
-    Placeholder = Color3.fromHex("#000000"),
-    Button = Color3.fromHex("#000000"),
+    Placeholder = Color3.fromHex("#30ff6a"),
+    Button = Color3.fromHex("#1A1A1A"),
     Icon = Color3.fromHex("#FFFFFF"),
-    Hover = Color3.fromHex("#000000"),
+    Hover = Color3.fromHex("#262626"),
     WindowBackground = Color3.fromHex("#000000"),
     WindowShadow = Color3.fromHex("#FFFFFF"),
     TabBackground = Color3.fromHex("#000000"),
     TabTitle = Color3.fromHex("#FFFFFF"),
     TabIcon = Color3.fromHex("#FFFFFF"),
-    ElementBackground = Color3.fromHex("#000000"),
+    ElementBackground = Color3.fromHex("#0D0D0D"),
     ElementTitle = Color3.fromHex("#FFFFFF"),
-    ElementDesc = Color3.fromHex("#000000"),
+    ElementDesc = Color3.fromHex("#FFFFFF"),
     ElementIcon = Color3.fromHex("#FFFFFF"),
-    Slider = Color3.fromHex("#000000"),
+    Slider = Color3.fromHex("#30ff6a"),
     SliderThumb = Color3.fromHex("#FFFFFF"),
-    Toggle = Color3.fromHex("#000000"),
-    ToggleBar = Color3.fromHex("#000000")
+    Toggle = Color3.fromHex("#30ff6a"),
+    ToggleBar = Color3.fromHex("#1A1A1A")
 })
 
 local Window = WindUI:CreateWindow({
@@ -38,10 +38,10 @@ local Window = WindUI:CreateWindow({
 })
 
 Window:Tag({
-    Title = "v1.1.2",
+    Title = "v1.1.4",
     Icon = "github",
     Color = Color3.fromHex("#30ff6a"),
-    Radius = 0,8
+    Radius = 8,
 })
 
 Window:EditOpenButton({
@@ -87,11 +87,12 @@ CodeTab:Code({ Title = "load website", Code = [[https://scriptload4-gpyduneo.man
 
 local MiscTab = Window:Tab({ Title = "Player Control", Icon = "settings" })
 local player = game.Players.LocalPlayer
-local userInputService = game:GetService("UserInputService")
-local runService = game:GetService("RunService")
+local UIS = game:GetService("UserInputService")
+local RS = game:GetService("RunService")
 
 local infJumpEnabled = false
 local noclipEnabled = false
+local noclipConnection
 
 MiscTab:Slider({
     Title = "WalkSpeed",
@@ -122,25 +123,32 @@ MiscTab:Toggle({
     end
 })
 
-userInputService.JumpRequest:Connect(function()
-    if infJumpEnabled and player.Character and player.Character:FindFirstChild("Humanoid") then
-        player.Character.Humanoid:ChangeState("Jumping")
+UIS.JumpRequest:Connect(function()
+    if infJumpEnabled and player.Character and player.Character:FindFirstChildOfClass("Humanoid") then
+        player.Character:FindFirstChildOfClass("Humanoid"):ChangeState(Enum.HumanoidStateType.Jumping)
     end
 end)
 
 MiscTab:Toggle({
-    Title = "Noclip"
+    Title = "Noclip",
     Icon = "ghost",
     Value = false,
     Callback = function(state)
         noclipEnabled = state
+        if not state and player.Character then
+            for _, part in pairs(player.Character:GetDescendants()) do
+                if part:IsA("BasePart") then
+                    part.CanCollide = true
+                end
+            end
+        end
     end
 })
 
-runService.Stepped:Connect(function()
+RS.Stepped:Connect(function()
     if noclipEnabled and player.Character then
         for _, part in pairs(player.Character:GetDescendants()) do
-            if part:IsA("BasePart") then
+            if part:IsA("BasePart") and part.CanCollide then
                 part.CanCollide = false
             end
         end
@@ -154,4 +162,4 @@ MiscTab:Button({
     end
 })
 
-WindUI:Notify({ Title = "Hub", Content = "เรียบร้อย" })
+WindUI:Notify({ Title = "โหลดสำเร็จ", Content = "" })
