@@ -41,7 +41,7 @@ Window:Tag({
     Title = "v1.1.2",
     Icon = "github",
     Color = Color3.fromHex("#30ff6a"),
-    Radius = 0, -- from 0 to 13
+    Radius = 0,8
 })
 
 Window:EditOpenButton({
@@ -77,40 +77,21 @@ MastersMZTab:Button({ Title = "Rob Visual Script Hub", Callback = function() loa
 MastersMZTab:Button({ Title = "FE Trolling GUI", Callback = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/yofriendfromschool1/Sky-Hub/main/FE%20Trolling%20GUI.luau"))() end })
 MastersMZTab:Button({ Title = "FE Sandevistan V6", Callback = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/mahowaga51-cmd/FE-Scripts/refs/heads/main/FE%20Sandevistan%20V6"))() end })
 
--- ย้าย Code Tab มาอยู่หลัง Script Section
 local CodeTab = Window:Tab({ Title = "component", Icon = "code" })
-CodeTab:Code({
-    Title = "discord",
-    Code = [[punpunok.]]
-})
-
-CodeTab:Code({
-    Title = "tiktok",
-    Code = [[punpun102030405060708090]]
-})
-
-CodeTab:Code({
-    Title = "main website",
-    Code = [[https://sites.google.com/view/pun-pun-script]]
-})
-
-CodeTab:Code({
-    Title = "key website",
-    Code = [[https://unlock-you-get.base44.app]]
-})
-
-CodeTab:Code({
-    Title = "script website",
-    Code = [[https://ropun-script-hub.base44.app]]
-})
-
-CodeTab:Code({
-    Title = "load website",
-    Code = [[https://scriptload4-gpyduneo.manus.space]]
-})
+CodeTab:Code({ Title = "discord", Code = [[punpunok.]] })
+CodeTab:Code({ Title = "tiktok", Code = [[punpun102030405060708090]] })
+CodeTab:Code({ Title = "main website", Code = [[https://sites.google.com/view/pun-pun-script]] })
+CodeTab:Code({ Title = "key website", Code = [[https://unlock-you-get.base44.app]] })
+CodeTab:Code({ Title = "script website", Code = [[https://ropun-script-hub.base44.app]] })
+CodeTab:Code({ Title = "load website", Code = [[https://scriptload4-gpyduneo.manus.space]] })
 
 local MiscTab = Window:Tab({ Title = "Player Control", Icon = "settings" })
 local player = game.Players.LocalPlayer
+local userInputService = game:GetService("UserInputService")
+local runService = game:GetService("RunService")
+
+local infJumpEnabled = false
+local noclipEnabled = false
 
 MiscTab:Slider({
     Title = "WalkSpeed",
@@ -132,6 +113,40 @@ MiscTab:Slider({
     end
 })
 
+MiscTab:Toggle({
+    Title = "Infinite Jump",
+    Icon = "chevrons-up",
+    Value = false,
+    Callback = function(state)
+        infJumpEnabled = state
+    end
+})
+
+userInputService.JumpRequest:Connect(function()
+    if infJumpEnabled and player.Character and player.Character:FindFirstChild("Humanoid") then
+        player.Character.Humanoid:ChangeState("Jumping")
+    end
+end)
+
+MiscTab:Toggle({
+    Title = "Noclip"
+    Icon = "ghost",
+    Value = false,
+    Callback = function(state)
+        noclipEnabled = state
+    end
+})
+
+runService.Stepped:Connect(function()
+    if noclipEnabled and player.Character then
+        for _, part in pairs(player.Character:GetDescendants()) do
+            if part:IsA("BasePart") then
+                part.CanCollide = false
+            end
+        end
+    end
+end)
+
 MiscTab:Button({
     Title = "Fly",
     Callback = function()
@@ -139,4 +154,4 @@ MiscTab:Button({
     end
 })
 
-WindUI:Notify({ Title = "Hub", Content = "จัดลำดับแท็บใหม่เรียบร้อย" })
+WindUI:Notify({ Title = "Hub", Content = "เรียบร้อย" })
