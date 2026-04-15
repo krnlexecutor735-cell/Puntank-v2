@@ -56,7 +56,7 @@ local ScriptSection = Window:Section({ Title = "Script", Icon = "folder", Opened
 local SomtankTab = ScriptSection:Tab({ Title = "Somtank", Icon = "mouse-pointer-click" })
 SomtankTab:Button({ Title = "99 nights in the fores", Callback = function() loadstring(game:HttpGet("https://api.luarmor.net/files/v4/loaders/61d67426af8207b22bde1afb308d9ff4.lua"))() end })
 SomtankTab:Button({ Title = "Murder Mystery 2", Callback = function() loadstring(game:HttpGet("https://api.luarmor.net/files/v4/loaders/36aa7a52f557fa2d7e5dbedae04d267b.lua"))() end })
-SomtankTab:Button({ Title = "Death Rail", Callback = function() loadstring(game:HttpGet("https://api.luarmor.net/files/v4/loaders/5132beca3ac02bb7f0536fa934905520.lua"))() end })
+SomtankTab:Button({ Title = "Death Rail", Callback = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/M4VOWJ8IAKSR5WFRCCJ7AW5IW/ScrFr/refs/heads/main/BoundDT.lua"))() end })
 SomtankTab:Button({ Title = "Escape Tsunami for Brainrot", Callback = function() loadstring(game:HttpGet('https://raw.githubusercontent.com/HJSIWN/BoaYoga/refs/heads/main/Escape_Tsunami_For_Barinrot.lua'))() end })
 
 local PatrickTab = ScriptSection:Tab({ Title = "Im Patrick", Icon = "user" })
