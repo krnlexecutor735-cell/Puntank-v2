@@ -68,7 +68,7 @@ PatrickTab:Button({ Title = "Rochips Panel", Callback = function() loadstring(ga
 PatrickTab:Button({ Title = "Rochips Universal", Callback = function() loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-rochips-universal-18294"))() end })
 
 local MastersMZTab = ScriptSection:Tab({ Title = "MastersMZ", Icon = "star" })
-MastersMZTab:Button({ Title = "Altair V2 Script Hub", Callback = function() loadstring(game:HttpGet("https://pastefy.app/hiwjpLFi/raw"))() end })
+MastersMZTab:Button({ Title = "Altair V2 Script Hub", Callback = function() loadstring(game:HttpGet("https://pastefy.app/hiwjpLFi/raw")) end })
 MastersMZTab:Button({ Title = "Echolite Hub", Callback = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/YepimSirPwnsAlot/dfdsfsfewfe/refs/heads/main/xcscdscsdcs"))() end })
 MastersMZTab:Button({ Title = "Prison Life Script", Callback = function() loadstring(game:HttpGet("https://moonrise.gay/Moonrise.lua"))() end })
 MastersMZTab:Button({ Title = "c00lkid Hub", Callback = function() loadstring(game:HttpGet("https://pastebin.com/raw/VQD0M5vH",true))() end })
@@ -76,6 +76,12 @@ MastersMZTab:Button({ Title = "Yunas Script Hub", Callback = function() loadstri
 MastersMZTab:Button({ Title = "Rob Visual Script Hub", Callback = function() loadstring(game:HttpGet("https://pastebin.com/raw/KSvbtcPE"))() end })
 MastersMZTab:Button({ Title = "FE Trolling GUI", Callback = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/yofriendfromschool1/Sky-Hub/main/FE%20Trolling%20GUI.luau"))() end })
 MastersMZTab:Button({ Title = "FE Sandevistan V6", Callback = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/mahowaga51-cmd/FE-Scripts/refs/heads/main/FE%20Sandevistan%20V6"))() end })
+
+local AzizAnzTab = ScriptSection:Tab({ Title = "AzizAnz", Icon = "zap" })
+AzizAnzTab:Button({ Title = "BodyCam", Callback = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/Azizanzz0/Scripts/refs/heads/main/VHS%20Retro%20or%20BodyCam.txt"))() end })
+AzizAnzTab:Button({ Title = "Sonic (R15)", Callback = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/Azizanzz0/FE-R15-Sonic-X-Super/refs/heads/main/Protected%20SonicXSuper.txt"))() end })
+AzizAnzTab:Button({ Title = "Sonic exe (R15)", Callback = function() loadstring(game:HttpGet("https://pastefy.app/XCtZsGhP/raw"))() end })
+AzizAnzTab:Button({ Title = "Script Sprint (R15)", Callback = function() loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Sprint-Button-and-Stamina-Bar-53897"))() end })
 
 local CodeTab = Window:Tab({ Title = "component", Icon = "code" })
 CodeTab:Code({ Title = "discord", Code = [[punpunok.]] })
@@ -92,7 +98,6 @@ local RS = game:GetService("RunService")
 
 local infJumpEnabled = false
 local noclipEnabled = false
-local noclipConnection
 
 MiscTab:Slider({
     Title = "WalkSpeed",
