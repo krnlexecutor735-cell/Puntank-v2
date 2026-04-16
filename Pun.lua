@@ -38,7 +38,7 @@ local Window = WindUI:CreateWindow({
 })
 
 Window:Tag({
-    Title = "v1.1.8",
+    Title = "v1.1.9",
     Icon = "github",
     Color = Color3.fromHex("#30ff6a"),
     Radius = 8,
@@ -58,6 +58,7 @@ SomtankTab:Button({ Title = "99 nights in the fores", Callback = function() load
 SomtankTab:Button({ Title = "Murder Mystery 2", Callback = function() loadstring(game:HttpGet("https://api.luarmor.net/files/v4/loaders/36aa7a52f557fa2d7e5dbedae04d267b.lua"))() end })
 SomtankTab:Button({ Title = "Death Rail", Callback = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/M4VOWJ8IAKSR5WFRCCJ7AW5IW/ScrFr/refs/heads/main/BoundDT.lua"))() end })
 SomtankTab:Button({ Title = "Escape Tsunami for Brainrot", Callback = function() loadstring(game:HttpGet('https://raw.githubusercontent.com/HJSIWN/BoaYoga/refs/heads/main/Escape_Tsunami_For_Barinrot.lua'))() end })
+SomtankTab:Button({ Title = "Strongest Battlegrounds", Callback = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/M4VOWJ8IAKSR5WFRCCJ7AW5IW/ScrFr/refs/heads/main/The%20Strongest%20Battlegrounds-obfuscated"))() end })
 
 local PatrickTab = ScriptSection:Tab({ Title = "Im Patrick", Icon = "user" })
 PatrickTab:Button({ Title = "Fe Mini Car (R15)", Callback = function() loadstring(game:HttpGet("https://pastefy.app/UqDEIOpO/raw"))() end })
@@ -67,7 +68,7 @@ PatrickTab:Button({ Title = "PShade Ultimate", Callback = function() loadstring(
 PatrickTab:Button({ Title = "Rochips Panel", Callback = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/randomstring0/load/refs/heads/main/rcloader"))() end })
 PatrickTab:Button({ Title = "Rochips Universal", Callback = function() loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-rochips-universal-18294"))() end })
 
-local MastersMZTab = ScriptSection:Tab({ Title = "MastersMZ", Icon = "star" })
+local MastersMZTab = ScriptSection:Tab({ Title = "MastersMZ", SomtankTab = "star" })
 MastersMZTab:Button({ Title = "Altair V2 Script Hub", Callback = function() loadstring(game:HttpGet("https://pastefy.app/hiwjpLFi/raw")) end })
 MastersMZTab:Button({ Title = "Echolite Hub", Callback = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/YepimSirPwnsAlot/dfdsfsfewfe/refs/heads/main/xcscdscsdcs"))() end })
 MastersMZTab:Button({ Title = "Prison Life Script", Callback = function() loadstring(game:HttpGet("https://moonrise.gay/Moonrise.lua"))() end })
