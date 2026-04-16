@@ -1,4 +1,10 @@
-starkTab WindUI = loadstring(game:HttpGet("https://github.com/Footagesus/WindUI/releases/latest/download/main.lua"))()
+local WindUI = loadstring(game:HttpGet("https://github.com/Footagesus/WindUI/releases/latest/download/main.lua"))()
+
+local aimEnabled = false
+local stealth = false
+local espName = false
+local espHighlight = false
+local aimFOV = 150
 
 WindUI:AddTheme({
     Name = "Dark",
@@ -68,8 +74,8 @@ PatrickTab:Button({ Title = "PShade Ultimate", Callback = function() loadstring(
 PatrickTab:Button({ Title = "Rochips Panel", Callback = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/randomstring0/load/refs/heads/main/rcloader"))() end })
 PatrickTab:Button({ Title = "Rochips Universal", Callback = function() loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-rochips-universal-18294"))() end })
 
-local MastersMZTab = ScriptSection:Tab({ Title = "MastersMZ" Icon = "star" })
-MastersMZTab:Button({ Title = "Altair V2 Script Hub", Callback = function() loadstring(game:HttpGet("https://pastefy.app/hiwjpLFi/raw")) end })
+local MastersMZTab = ScriptSection:Tab({ Title = "MastersMZ", Icon = "star" })
+MastersMZTab:Button({ Title = "Altair V2 Script Hub", Callback = function() loadstring(game:HttpGet("https://pastefy.app/hiwjpLFi/raw"))() end })
 MastersMZTab:Button({ Title = "Echolite Hub", Callback = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/YepimSirPwnsAlot/dfdsfsfewfe/refs/heads/main/xcscdscsdcs"))() end })
 MastersMZTab:Button({ Title = "Prison Life Script", Callback = function() loadstring(game:HttpGet("https://moonrise.gay/Moonrise.lua"))() end })
 MastersMZTab:Button({ Title = "c00lkid Hub", Callback = function() loadstring(game:HttpGet("https://pastebin.com/raw/VQD0M5vH",true))() end })
@@ -84,6 +90,17 @@ AzizAnzTab:Button({ Title = "Sonic (R15)", Callback = function() loadstring(game
 AzizAnzTab:Button({ Title = "Sonic exe (R15)", Callback = function() loadstring(game:HttpGet("https://pastefy.app/XCtZsGhP/raw"))() end })
 AzizAnzTab:Button({ Title = "Script Sprint (R15)", Callback = function() loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Sprint-Button-and-Stamina-Bar-53897"))() end })
 
+local AimbotSection = Window:Section({ Title = "Aimbot", Icon = "crosshair", Opened = false })
+
+local AimbotTab = AimbotSection:Tab({ Title = "Aimbot", Icon = "target" })
+AimbotTab:Toggle({ Title = "Enable Aimbot", Value = false, Callback = function(s) aimEnabled = s end })
+AimbotTab:Toggle({ Title = "Stealth FOV", Value = false, Callback = function(s) stealth = s end })
+AimbotTab:Slider({ Title = "FOV Radius", Value = { Min = 10, Max = 800, Default = 150 }, Callback = function(v) aimFOV = v end })
+
+local EspTab = AimbotSection:Tab({ Title = "ESP", Icon = "eye" })
+EspTab:Toggle({ Title = "ESP Name", Value = false, Callback = function(s) espName = s end })
+EspTab:Toggle({ Title = "ESP Highlight", Value = false, Callback = function(s) espHighlight = s end })
+
 local CodeTab = Window:Tab({ Title = "component", Icon = "code" })
 CodeTab:Code({ Title = "discord", Code = [[punpunok.]] })
 CodeTab:Code({ Title = "tiktok", Code = [[punpun102030405060708090]] })
@@ -96,6 +113,7 @@ local MiscTab = Window:Tab({ Title = "Player Control", Icon = "settings" })
 local player = game.Players.LocalPlayer
 local UIS = game:GetService("UserInputService")
 local RS = game:GetService("RunService")
+local camera = workspace.CurrentCamera
 
 local infJumpEnabled = false
 local noclipEnabled = false
@@ -167,5 +185,68 @@ MiscTab:Button({
         loadstring(game:HttpGet("https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/FlyGuiV3.txt"))()
     end
 })
+
+local fovGui = Instance.new("ScreenGui", player.PlayerGui)
+fovGui.Name = "PunFOV"
+fovGui.IgnoreGuiInset = true
+fovGui.ResetOnSpawn = false
+local circ = Instance.new("Frame", fovGui)
+circ.AnchorPoint = Vector2.new(0.5, 0.5)
+circ.BackgroundTransparency = 1
+circ.Visible = false
+Instance.new("UICorner", circ).CornerRadius = UDim.new(1, 0)
+local stroke = Instance.new("UIStroke", circ)
+stroke.Color = Color3.fromHex("#30ff6a")
+
+RS.RenderStepped:Connect(function()
+    local mid = Vector2.new(camera.ViewportSize.X/2, camera.ViewportSize.Y/2)
+    circ.Visible = (aimEnabled and not stealth)
+    if circ.Visible then
+        circ.Size = UDim2.fromOffset(aimFOV * 2, aimFOV * 2)
+        circ.Position = UDim2.fromOffset(mid.X, mid.Y)
+    end
+
+    if aimEnabled then
+        local target, close = nil, aimFOV
+        for _, v in pairs(game.Players:GetPlayers()) do
+            if v ~= player and v.Character and v.Character:FindFirstChild("Head") then
+                local p, vis = camera:WorldToViewportPoint(v.Character.Head.Position)
+                if vis then
+                    local mag = (Vector2.new(p.X, p.Y) - mid).Magnitude
+                    if mag < close then close = mag target = v end
+                end
+            end
+        end
+        if target then camera.CFrame = CFrame.new(camera.CFrame.Position, target.Character.Head.Position) end
+    end
+    
+    for _, p in pairs(game.Players:GetPlayers()) do
+        if p ~= player and p.Character and p.Character:FindFirstChild("Head") then
+            local char = p.Character
+            
+            local h = char:FindFirstChild("PunH") or Instance.new("Highlight", char)
+            h.Name = "PunH"
+            h.FillColor = Color3.fromHex("#30ff6a")
+            h.DepthMode = Enum.HighlightDepthMode.Occluded
+            h.Enabled = espHighlight
+            
+            local b = char.Head:FindFirstChild("PunN") or Instance.new("BillboardGui", char.Head)
+            b.Name = "PunN"
+            b.Size = UDim2.new(0, 100, 0, 50)
+            b.AlwaysOnTop = true
+            b.ExtentsOffset = Vector3.new(0, 3, 0)
+            b.Enabled = espName
+            
+            local l = b:FindFirstChild("Txt") or Instance.new("TextLabel", b)
+            l.Name = "Txt"
+            l.Size = UDim2.new(1, 0, 1, 0)
+            l.BackgroundTransparency = 1
+            l.Text = p.Name
+            l.TextColor3 = Color3.new(1, 1, 1)
+            l.Font = "GothamBold"
+            l.TextSize = 10
+        end
+    end
+end)
 
 WindUI:Notify({ Title = "โหลดสำเร็จ", Content = "" })
