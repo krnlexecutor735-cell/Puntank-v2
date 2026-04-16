@@ -5,6 +5,7 @@ local stealth = false
 local espName = false
 local espHighlight = false
 local aimFOV = 150
+local hiddenfling = false
 
 WindUI:AddTheme({
     Name = "Dark",
@@ -118,6 +119,24 @@ local camera = workspace.CurrentCamera
 local infJumpEnabled = false
 local noclipEnabled = false
 
+local function fling()
+    local hrp, vel, movel = nil, nil, 0.1
+    while hiddenfling do
+        RS.Heartbeat:Wait()
+        local character = player.Character
+        hrp = character and character:FindFirstChild("HumanoidRootPart")
+        if hrp then
+            vel = hrp.Velocity
+            hrp.Velocity = vel * 15000 + Vector3.new(0, 15000, 0)
+            RS.RenderStepped:Wait()
+            hrp.Velocity = vel
+            RS.Stepped:Wait()
+            hrp.Velocity = vel + Vector3.new(0, movel, 0)
+            movel = -movel
+        end
+    end
+end
+
 MiscTab:Slider({
     Title = "WalkSpeed",
     Value = { Min = 16, Max = 200, Default = 16 },
@@ -144,6 +163,18 @@ MiscTab:Toggle({
     Value = false,
     Callback = function(state)
         infJumpEnabled = state
+    end
+})
+
+MiscTab:Toggle({
+    Title = "Fling",
+    Icon = "zap",
+    Value = false,
+    Callback = function(state)
+        hiddenfling = state
+        if state then
+            task.spawn(fling)
+        end
     end
 })
 
