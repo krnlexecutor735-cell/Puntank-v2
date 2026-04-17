@@ -44,6 +44,8 @@ local Window = WindUI:CreateWindow({
     HideSearchBar = true,
 })
 
+Window:SetBackgroundImage("rbxassetid://9143417233")
+
 Window:Tag({
     Title = "v1.1.9",
     Icon = "github",
