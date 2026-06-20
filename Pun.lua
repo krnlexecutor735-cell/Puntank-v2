@@ -35,7 +35,7 @@ WindUI:AddTheme({
 
 local Window = WindUI:CreateWindow({
     Title = "รวมสคริปต์ YouTuber",
-    Icon = "gem",
+    Icon = "square-play",
     Author = "by pun_pun102030",
     Folder = "Pun",
     Size = UDim2.fromOffset(580, 460),
